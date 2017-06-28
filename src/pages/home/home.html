@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Firebase Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="!auth.token">
+    <p>Inicia sesión para poder subir imagenes</p>
+  </div>
+
+  <div *ngIf="!!auth.token">
+    <input type="file" multiple="true" (change)="fileChanges($event)">
+    <button ion-button (tap)="submit()" secondary>Subir archivos</button>
+  </div>
+</ion-content>
